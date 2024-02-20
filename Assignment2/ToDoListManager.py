@@ -9,16 +9,23 @@ def add(List):
     name=input("Enter task name : ")
     prioty=int(input("Enter priority : "))
     task=input("Task Completed Enter Yes,No : ")
-    s={name,prioty,task}
+    s=[name,prioty,task]
     List.append(s)
 
 def tas(List):
     i=int(input("Enter index: "))
     l=List[i]
     print(l)
-    k=list(l)
-    if k[1]=="Yes":
+    
+    if l[2]=="Yes":
         print("Task Successful")
+    else:
+        print("Unsuccessful")
+
+def remov(List):
+    i=int(input("Enter index: "))
+    del List[i]
+    print("Delete Successfull")
 
 def show(List):
     print(List)
@@ -28,14 +35,19 @@ def main():
     while True:
         print("1.Add Task")
         print("2.mark tasks as completed")
-        print("3.show task")
+        print("3.Remove task")
+        print("4.show task")
         choice=int(input("Enter number : "))
         if(1==choice):
             add(List)
         elif(2==choice):
             tas(List)
         elif(3==choice):
+            remov(List)
+
+        elif(4==choice):
             show(List)
+
             
 
 if __name__ == "__main__":
