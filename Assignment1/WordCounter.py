@@ -7,17 +7,15 @@ Print out the top 5 most common words and their frequencies.
 """
 
 a=open("C:/Users/ADMIN/OneDrive/Documents/FinalAssignment/Assignment1/a.txt")
-c=0
-b=dict()
+Dictionary=dict()
 for l in a:    
-    word=l.split(" ")
-    for words in word:
-        if words in b:
-            b[words]=b[words]+1
+    wordSplit=l.split()
+    for words in wordSplit:
+        if words in Dictionary:
+            Dictionary[words]=Dictionary[words]+1
         else:
-            b[words]=1
+            Dictionary[words]=1
       
-l=list(b.keys())
-fi=l[:4]
-for i in fi:
-    print(i,":",b[i])
+Sorted_words=sorted(Dictionary.items(),key=lambda x:x[1],reverse=True)
+for word,frequency in Sorted_words[:5]:
+    print(word,":",frequency)
